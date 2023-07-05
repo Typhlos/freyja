@@ -50,7 +50,11 @@ virt-install \
     --name "${HOSTNAME}" \
     --memory "${MEMORY_SIZE}" \
     --vcpus "${VCPUS_NUMBER}" \
+    {% if cpu %}
+    --cpu {{cpu}} \
+    {% else %}
     --cpu host,+vmx \
+    {% endif %}
     --metadata description="${HOSTNAME}" \
     --os-variant "${OS_VARIANT}" \
     {% if ignition %}
@@ -72,6 +76,12 @@ virt-install \
     {% for net in networks %}
     --network network={{net.name}},mac={{net.address}}{% if not loop.last %} \{% endif +%}
     {% endfor %}
+    {% endif %}
+    {% if arch %}
+    --arch {{arch}} \
+    {% endif %}
+    {% if machine %}
+    --machine {{machine}}
     {% endif %}
 
 exit 0
