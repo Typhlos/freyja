@@ -53,7 +53,9 @@ virt-install \
     {% if cpu %}
     --cpu {{cpu}} \
     {% else %}
+    {% if not arch %}
     --cpu host,+vmx \
+    {% endif %}
     {% endif %}
     --metadata description="${HOSTNAME}" \
     --os-variant "${OS_VARIANT}" \
