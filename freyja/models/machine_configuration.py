@@ -40,3 +40,6 @@ class MachineConfiguration(BaseModel):
     write_files: Optional[List[WriteFile]] = Field(None, alias="write-files")
     update: Optional[bool] = False
     reboot: Optional[bool] = False
+    arch: Optional[str]
+    machine: Optional[str]
+    cpu: Optional[str]

@@ -99,7 +99,7 @@ def delete_domain(name: str):
             pass
         else:
             raise e
-    execute(["virsh", "undefine", name, "--remove-all-storage"])
+    execute(["virsh", "undefine", name, "--remove-all-storage", "--nvram"])
     # pool
     execute(["virsh", "pool-destroy", name])
     execute(["virsh", "pool-undefine", name])

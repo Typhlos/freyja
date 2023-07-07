@@ -1,0 +1,10 @@
+---
+#wget 'https://cloud-images.ubuntu.com/releases/jammy/release/ubuntu-22.04-server-cloudimg-arm64.img' -O /tmp/ubuntu-22.04-server-cloudimg-arm64.img
+version: "v0.1.0-beta"
+hosts:
+  - hostname: "freyja-ubuntu_aarch64"
+    image: "/tmp/ubuntu-22.04-server-cloudimg-arm64.img"
+    os: "ubuntu20.04"
+    arch: "aarch64"
+    machine: "virt"
+    cpu: "cortex-a72"
